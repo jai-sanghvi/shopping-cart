@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  background-color: aliceblue;
+}
+
+.nav {
+  composes: header;
+  list-style-type: none;
+  gap: 50px;
+  padding: 0;
+}
+
+.nav a {
+  display: inline-block;
+  margin: 25px 0;
+  position: relative;
+}
+
+.nav li:last-of-type a::after {
+  position: absolute;
+  content: attr(data-cart-items);
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  min-width: 20px;
+  /* height: 20px; */
+  height: auto;
+  aspect-ratio: 1;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -15px;
+  right: -15px;
+}
