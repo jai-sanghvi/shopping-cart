@@ -1,23 +1,20 @@
-import { Fragment } from "react";
 import { useOutletContext } from "react-router-dom";
+import styles from '../styles/Shop.module.css'
+import Product from "../components/Product";
 
 function Shop() {
-  const products = useOutletContext();
+  const { products } = useOutletContext();
 
   return (
     <>
       <h1>Shop page</h1>
-      {products && products.map((product) => {
-        return (
-          <Fragment key={product.id}>
-            <p>{product.title}</p>
-            <p>Price: {product.price}</p>
-            <p>Description: {product.description}</p>
-            <p>category: {product.category}</p>
-            <img src={product.image} />
-          </Fragment>
-        )
-      })}
+      <div className={styles.products}>
+        {products && products.map((product) => {
+          return (
+            <Product key={product.id} product={product} />
+          )
+        })}
+      </div>
     </>
   )
 }

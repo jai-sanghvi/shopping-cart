@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Navigation cartItems={cartItems} />
-      <Outlet context={products} />
+      <Outlet context={{products, setCartItems}} />
     </>
   )
 }
